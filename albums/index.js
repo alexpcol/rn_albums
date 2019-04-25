@@ -1,6 +1,6 @@
 // Import a library to help create a component
 import React from 'react';
-import { AppRegistry, View, SafeAreaView, ScrollView } from 'react-native';
+import { AppRegistry, View, SafeAreaView, ScrollView, Text } from 'react-native';
 import Header from './src/components/header';
 import AlbumList from './src/components/AlbumList';
 
@@ -9,10 +9,8 @@ const App = () => {
     return (
         <View style={{ flex: 1, backgroundColor: '#F8F8F8' }}>
             <SafeAreaView>
-                <Header headerText={'Albums!!'} />
-                <ScrollView contentInsetAdjustmentBehavior="automatic">
-                    <AlbumList />
-                </ScrollView>
+                <Header headerText={'Albums!'} />
+                <AlbumList />
             </SafeAreaView>
         </View>
     );
