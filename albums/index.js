@@ -9,7 +9,7 @@ const App = () => {
     return (
         <View style={{ flex: 1, backgroundColor: '#F8F8F8' }}>
             <SafeAreaView>
-                <Header headerText={'Albums!'} />
+                <Header headerText={'Albums!!'} />
                 <ScrollView contentInsetAdjustmentBehavior="automatic">
                     <AlbumList />
                 </ScrollView>
