@@ -12,22 +12,22 @@ class LoginForm extends Component {
         loading: false
     };
 
-    logInAction() {
+    logInAction = () => {
         const { email, password } = this.state;
         this.setState({ error: '', loading: true });
         firebase.auth().signInWithEmailAndPassword(email, password)
-            .then(this.loginSucceed.bind(this))
-            .catch(this.signUpAction.bind(this));
+            .then(this.loginSucceed)
+            .catch(this.signUpAction);
     }
 
-    signUpAction() {
+    signUpAction = () => {
         const { email, password } = this.state;
         firebase.auth().createUserWithEmailAndPassword(email, password)
-            .then(this.loginSucceed.bind(this))
-            .catch(this.loginFailed.bind(this));
+            .then(this.loginSucceed)
+            .catch(this.loginFailed);
     }
 
-    loginSucceed() {
+    loginSucceed = () => {
         this.setState({
             email: '',
             password: '',
@@ -36,7 +36,7 @@ class LoginForm extends Component {
         });
     }
 
-    loginFailed() {
+    loginFailed = () => {
         this.setState({ error: 'Authentication failed', loading: false });
     }
 
@@ -47,7 +47,7 @@ class LoginForm extends Component {
             );
         }
         return (
-            <Button onPress={this.logInAction.bind(this)}>
+            <Button onPress={this.logInAction}>
                 Log in
             </Button>
         );
