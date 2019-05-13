@@ -6,21 +6,33 @@ import StatusBar from '../../styles/statusBar/GeneralStatusBarColor';
 const AppContainer = ({ children,
     containerBackgroundColor,
     headerBackgroundColor,
-    headerText }) => {
+    headerText,
+    showHeader = true, }) => {
+    if (showHeader) {
+        return (
+            <View style={{ backgroundColor: containerBackgroundColor, flex: 1 }}>
+                <StatusBar
+                    backgroundColor={headerBackgroundColor}
+                    barStyle="light-content"
+                />
+                <Header headerText={headerText} headerBackgroundColor={headerBackgroundColor} />
+                <SafeAreaView style={{ marginHorizontal: 8, marginTop: 8, backgroundColor: containerBackgroundColor, flex: 1 }}>
+                    {children}
+                </SafeAreaView>
+            </View>
+        );
+    }
     return (
-        <View style={[{ backgroundColor: containerBackgroundColor, flex: 1 }]}>
+        <View style={{ backgroundColor: containerBackgroundColor, flex: 1 }}>
             <StatusBar
-                backgroundColor="#772ea2"
+                backgroundColor={containerBackgroundColor}
                 barStyle="light-content"
             />
-            <SafeAreaView >
-                <Header headerText={headerText} headerBackgroundColor={headerBackgroundColor} />
-                <View style={{ marginHorizontal: 8, marginTop: 8, backgroundColor: containerBackgroundColor }}>
-                    {children}
-                </View>
+            <SafeAreaView style={{ marginHorizontal: 8, marginTop: 8, backgroundColor: containerBackgroundColor, flex: 1 }}>
+                {children}
             </SafeAreaView>
         </View>
     );
-}
+};
 
 export { AppContainer };
